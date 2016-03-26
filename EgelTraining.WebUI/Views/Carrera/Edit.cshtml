@@ -1,0 +1,29 @@
+﻿@model EgelTraining.Domain.Entities.Carrera
+@{
+    ViewBag.Title = "Edit " + Model.NombreLargo;
+    Layout = "~/Views/Shared/_CarrerasLayout.cshtml";
+}
+
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Editar @Model.NombreLargo</h3>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        <div class="panel-body">
+        @Html.HiddenFor(c => c.Siglas)
+        @Html.TextArea("NombreLargo", null, new  {   @class = "form-control", rows = 5  })
+        
+        </div>
+        <div class="panel-footer">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Cancelar y regresar a carreras","Index",null, new {@class = "btn btn-default" })
+        </div>
+
+    }
+
+</div>
+
+
