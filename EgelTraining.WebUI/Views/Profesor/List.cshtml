@@ -1,0 +1,19 @@
+﻿@model EgelTraining.Domain.Concrete.EFProfesorRepository
+
+
+@{
+    ViewBag.Title = "Profesores";
+}
+
+@foreach (var prof in Model.Profesors)
+{
+    <div class="well">
+        <h3>
+            <strong>@prof.Nomina</strong>
+            <span class="pull-right label label-primary">@prof.Nombre @prof.ApellidoPaterno</span> 
+        </h3>
+        <span class="lead">@prof.CorreoElectronico</span>
+    </div>
+}
+
+
