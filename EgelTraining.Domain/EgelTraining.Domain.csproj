@@ -128,6 +128,8 @@
     <Compile Include="Entities\Tema.cs">
       <DependentUpon>DBEgel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Classes\Metadata.cs" />
+    <Compile Include="Entities\Classes\PartialClasses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
