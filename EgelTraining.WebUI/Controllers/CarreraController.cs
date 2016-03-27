@@ -40,5 +40,22 @@ namespace EgelTraining.WebUI.Controllers
             }
         }
         
+        public ViewResult Create()
+        {
+            return View("Edit", new Carrera());
+        }
+
+        [HttpPost]
+        public ActionResult Delete(string siglas)
+        {
+            Carrera deletedCarrera = repository.DeleteCarrera(siglas);
+            if(deletedCarrera != null)
+            {
+                TempData["message"] = string.Format("{0} fue borrado", deletedCarrera.NombreLargo);
+            }
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
