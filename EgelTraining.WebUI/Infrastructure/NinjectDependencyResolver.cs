@@ -33,6 +33,7 @@ namespace EgelTraining.WebUI.Infrastructure
             //////////////aquí volveremos a cada rato
             kernel.Bind<IProfesorRepository>().To <EFProfesorRepository>();
             kernel.Bind<ICarreraRepository>().To<EFCarreraRepository>();
+            kernel.Bind<IPlanRepository>().To<EFPlanRepository>();
         }
 
 

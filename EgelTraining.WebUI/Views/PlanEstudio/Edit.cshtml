@@ -1,0 +1,33 @@
+﻿@model EgelTraining.Domain.Entities.PlanEstudio
+@{
+    ViewBag.Title = "Edit " + Model.Plan;
+    Layout = "~/Views/Shared/_CarrerasLayout.cshtml";
+}
+
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Editar @Model.Plan</h3>
+    </div>
+
+    @using (Html.BeginForm("Edit", "PlanEstudio"))
+    {
+        <div class="panel-body">
+
+            @Html.TextArea("Siglas", null, new { @class = "form-control" })
+            @*Como comentario , el otro día haciendo la línea superior, puse from-control en vez de form-control, como imaginará no se rendereaba como yo esperaba y le echaba la culpa al navegador *@
+
+            @* se deja como ejemplo, cuando no se quieren cambiar las llaves; que tal que es un campo identidad por ejemplo, autogenerado *@
+            @*@Html.HiddenFor(c => c.Siglas)*@
+
+            @Html.TextArea("Plan", null, new { @class = "form-control" })
+
+        </div>
+        <div class="panel-footer">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Cancelar y regresar a carreras", "Index", null, new { @class = "btn btn-default" })
+        </div>
+
+    }
+
+</div>
