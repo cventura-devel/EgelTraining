@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EgelTraining.Domain.Entities.Examan>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Exámenes</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Planes</h3>
+    </div>
+
+    <div class="panel-body">
+        <table class="table table-striped table-condensed table-bordered">
+            <tr>
+                @*<th class="text-right">ID</th>*@
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Fecha de Creación</th>
+                <th class="text-center"></th>
+            </tr>
+            @foreach (var examen in Model)
+            {
+                <tr>
+                    @*<td class="text-right">@examen.IDExamen</td>*@
+                    <td>@Html.ActionLink(examen.Nombre, "Edit", new { examen.IDExamen })</td>
+                    <td>@examen.Descripcion</td>
+                    <td>@examen.FechaDeCreacion.ToShortDateString()</td>
+                    <td class="text-center">
+                        @using (Html.BeginForm("Delete", "AdminExamen"))
+                        {
+                            @Html.Hidden("IDExamen", examen.IDExamen)
+                            <input type="submit" class="btn btn-danger btn-xs" value="Delete" />
+                        }
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="panel-footer">
+        @Html.ActionLink("Crear Examen", "Create", null, new { @class = "btn btn-default" })
+    </div>
+</div>

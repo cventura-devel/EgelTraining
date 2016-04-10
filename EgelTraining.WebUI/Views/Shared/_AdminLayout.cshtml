@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <title>@ViewBag.Title</title>
-    
+
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -50,42 +51,40 @@
         <div class="page-header" id="banner">
             <div class="row">
                 <div class="col-lg-8 col-md-7 col-sm-6">
-                    <h1>Exámenes disponibles</h1>
-                    <p class="lead">Registrate aquí para presentarlo</p>
+                    <h1>Administración</h1>
                 </div>
-                @*<div class="col-lg-4 col-md-5 col-sm-6">
-                    <div class="sponsor">
-                        <img src="~/Content/Images/LogoVedit.png" />
-                    </div>
-                </div>*@
             </div>
             <div class="row">
-                <div class="col-lg-9 col-md-9 col-sm-8">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    @if (TempData["message"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["message"]</div>
+                    }
                     @RenderBody()
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-4">
-
-                    <p>
-                        Cada examen tiene agrupados temas de acuerdo al semestre indicado en la descripción del examen. No tienen peso curricular y son para evaluar y detectar áreas de oportunidad en el proceso de enseñanza-aprendizaje.
-                    </p>
-                    @*<div class="list-group table-of-contents">
-                        <a class="list-group-item" href="#navbar">ITIC</a>
-                        <a class="list-group-item" href="#buttons">IMT</a>
-                        <a class="list-group-item" href="#typography">IIS</a>
-                    </div>*@
-                </div>
-                
             </div>
         </div>
-     </div>
+    </div>
 
-        @*<div class="row panel">
+    @*<div class="row panel">
             <div id="categories" class="col-xs-3">
                 Modificar después
             </div>
-           
+
         </div>*@
-        <script src="~/scripts/jquery-1.10.2.min.js"></script>
-        <script src="~/scripts/bootstrap.min.js"></script>
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+
+        $(function () {
+            // This will make every element with the class "date-picker" into a DatePicker element
+            $('.date-picker').datepicker();
+        })
+
+
+    </script>
+
+
 </body>
 </html>

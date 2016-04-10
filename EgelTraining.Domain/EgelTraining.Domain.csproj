@@ -80,9 +80,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\ICarreraRepository.cs" />
+    <Compile Include="Abstract\IExamenRepository.cs" />
     <Compile Include="Abstract\IPlanRepository.cs" />
     <Compile Include="Abstract\IProfesorRepository.cs" />
     <Compile Include="Concrete\EFCarreraRepository.cs" />
+    <Compile Include="Concrete\EFExamenRepository.cs" />
     <Compile Include="Concrete\EFPlanRepository.cs" />
     <Compile Include="Concrete\EFProfesorRepository.cs" />
     <Compile Include="Entities\Alumno.cs">

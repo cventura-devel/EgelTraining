@@ -1,0 +1,15 @@
+﻿@model EgelTraining.WebUI.Models.ExamenesListViewModel
+@{
+    ViewBag.Title = "Examenes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach(var e in Model.Examenes)
+{
+    @Html.Partial("ExamSummary",e)
+}
+
+<div class="btn btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x=>Url.Action("List",new {page = x }))
+</div>
+

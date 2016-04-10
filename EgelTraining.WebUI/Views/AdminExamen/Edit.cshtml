@@ -1,0 +1,56 @@
+﻿@model EgelTraining.Domain.Entities.Examan
+
+@{
+    ViewBag.Title = "Editando:" + Model.Nombre;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Editar @Model.Nombre</h3>
+    </div>
+
+    @using (Html.BeginForm("Edit", "AdminExamen"))
+    {
+        <div class="panel-body">
+            @Html.HiddenFor(c => c.IDExamen)
+            
+            @Html.NameFor(c => c.Nombre)
+            @Html.TextBox("Nombre", null, new { @class = "form-control" })
+
+            @Html.NameFor(c => c.Descripcion)
+            @Html.TextBox("Descripcion", null, new { @class = "form-control" })
+
+            @Html.NameFor(c => c.FechaDeCreacion)
+
+
+            @* NO me gusta esta forma de resolver el problema de la fecha actual vs la guardada pero no he encontrado una forma mejor *@
+            @if (Model.Nombre == null)
+            {
+                @Html.TextBox("FechaDeCreacion", DateTime.Now, "{0:M/d/yyyy}", new { @class = "date-picker form-control" })
+            }
+            else
+            {
+                @Html.TextBox("FechaDeCreacion", null, "{0:M/d/yyyy}", new { @class = "date-picker form-control" })
+
+            }
+
+
+
+
+
+
+
+
+
+        </div>
+        <div class="panel-footer">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Cancelar y regresar a Exámenes", "Index", null, new { @class = "btn btn-default" })
+        </div>
+
+    }
+
+</div>
+
+
