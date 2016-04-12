@@ -1,0 +1,85 @@
+﻿@model EgelTraining.WebUI.Models.ViewTemaPregunta
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index</title>
+</head>
+<body>
+   
+     <div> 
+         <table class="table">
+             <tr>
+                 <th>Clave Tema</th>
+                 <th>Nombre Tema</th>
+                 <th></th>
+             </tr>
+
+             @foreach (var tema in Model.Temas)
+             {
+                 string selectedRow = "";
+                 if (tema.ClaveTema == ViewBag.ClaveTema)
+                 {
+                     selectedRow = "success";
+                 }
+                 <tr class="@selectedRow">
+                     <td>
+                         @Html.DisplayFor(modelItem => tema.ClaveTema)
+                     </td>
+                     <td>
+                         @Html.DisplayFor(modelItem => tema.NombreTema)
+                     </td>
+
+                     <td>
+                          @Html.ActionLink("Select","index",new { ClaveTema = tema.ClaveTema})
+                     </td>
+                 </tr>
+             }
+
+
+
+         </table>
+         @if (Model.Preguntas != null)
+         {
+             <h3>Preguntas</h3>
+             <table class="table">
+                 <tr>
+                     <th></th>
+                     <th>Number</th>
+                     <th>Title</th>
+                     <th>Department</th>
+                 </tr>
+
+                 @foreach (var item in Model.Preguntas)
+                 {
+                        <tr>
+                         <td>
+                             @Html.ActionLink("Select", "Index", new { courseID = item.IDPregunta })
+                         </td>
+                         <td>
+                             @item.IDPregunta
+                         </td>
+                         <td>
+                             @item.Texto
+                         </td>
+                         <td>
+                             @item.RespuestaCorrecta
+                         </td>
+                     </tr>
+                 }
+
+             </table>
+         }
+
+</div>
+
+
+
+
+</body>
+</html>

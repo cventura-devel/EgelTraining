@@ -177,6 +177,7 @@
     <Compile Include="Controllers\ExamenController.cs" />
     <Compile Include="Controllers\PlanEstudioController.cs" />
     <Compile Include="Controllers\ProfesorController.cs" />
+    <Compile Include="Controllers\ViewTemaPreguntaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,6 +185,7 @@
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\ExamenesListViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="Models\ViewTemaPregunta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +209,7 @@
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\AdminExamen\Index.cshtml" />
     <Content Include="Views\AdminExamen\Edit.cshtml" />
+    <Content Include="Views\ViewTemaPregunta\index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
