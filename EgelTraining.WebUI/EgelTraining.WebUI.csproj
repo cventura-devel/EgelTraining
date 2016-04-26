@@ -176,13 +176,16 @@
     <Compile Include="Controllers\CarreraController.cs" />
     <Compile Include="Controllers\ExamenController.cs" />
     <Compile Include="Controllers\PlanEstudioController.cs" />
+    <Compile Include="Controllers\PresentaExamenController.cs" />
     <Compile Include="Controllers\ProfesorController.cs" />
+    <Compile Include="Controllers\RespondeExamenController.cs" />
     <Compile Include="Controllers\ViewTemaPreguntaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\ContestaExamenViewModel.cs" />
     <Compile Include="Models\ExamenesListViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Models\ViewTemaPregunta.cs" />
@@ -210,6 +213,7 @@
     <Content Include="Views\AdminExamen\Index.cshtml" />
     <Content Include="Views\AdminExamen\Edit.cshtml" />
     <Content Include="Views\ViewTemaPregunta\index.cshtml" />
+    <Content Include="Views\RespondeExamen\List.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -219,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\PresentaExamen\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EgelTraining.Domain\EgelTraining.Domain.csproj">

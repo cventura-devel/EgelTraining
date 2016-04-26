@@ -1,0 +1,13 @@
+﻿@model EgelTraining.WebUI.Models.ContestaExamenViewModel
+@{
+    ViewBag.Title = "Preguntas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Preguntas</h2>
+
+@foreach(var p in Model.Preguntas)
+{
+    <h3>@p.Texto</h3>
+}
+
