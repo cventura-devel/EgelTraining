@@ -8,4 +8,5 @@ namespace EgelTraining.Domain.Entities
         [StringLength(4)]
         public string Siglas { set; get; } 
     }
+
 }

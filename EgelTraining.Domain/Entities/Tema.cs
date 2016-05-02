@@ -21,8 +21,10 @@ namespace EgelTraining.Domain.Entities
             this.Examen = new HashSet<Examan>();
             this.Preguntas = new HashSet<Pregunta>();
         }
-    
+
+        
         public string ClaveTema { get; set; }
+
         public string NombreTema { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

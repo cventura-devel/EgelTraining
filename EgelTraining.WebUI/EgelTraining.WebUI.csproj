@@ -172,7 +172,9 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminExamenController.cs" />
+    <Compile Include="Controllers\AdminPreguntaController.cs" />
     <Compile Include="Controllers\AdminProfesorController.cs" />
+    <Compile Include="Controllers\AdminTemaController.cs" />
     <Compile Include="Controllers\CarreraController.cs" />
     <Compile Include="Controllers\ExamenController.cs" />
     <Compile Include="Controllers\PlanEstudioController.cs" />
@@ -214,6 +216,10 @@
     <Content Include="Views\AdminExamen\Edit.cshtml" />
     <Content Include="Views\ViewTemaPregunta\index.cshtml" />
     <Content Include="Views\RespondeExamen\List.cshtml" />
+    <Content Include="Views\AdminTema\Index.cshtml" />
+    <Content Include="Views\AdminTema\Edit.cshtml" />
+    <Content Include="Views\AdminPregunta\Index.cshtml" />
+    <Content Include="Views\AdminPregunta\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

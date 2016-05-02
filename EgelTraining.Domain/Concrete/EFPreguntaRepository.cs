@@ -26,6 +26,12 @@ namespace EgelTraining.Domain.Concrete
                 dbEntry.Tipo = pregunta.Tipo;
                 dbEntry.TextoRespuesta = pregunta.TextoRespuesta;
                 dbEntry.Dificultad = pregunta.Dificultad;
+
+                //checar si la imagen no está vacía
+                if (pregunta.Imagen != null && pregunta.Imagen.Length > 0)
+                {
+                    dbEntry.Imagen = pregunta.Imagen;
+                }
             }
             else //de lo contrario, lo añade
             {
