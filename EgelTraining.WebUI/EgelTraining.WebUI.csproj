@@ -171,6 +171,7 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminAlumnoController.cs" />
     <Compile Include="Controllers\AdminExamenController.cs" />
     <Compile Include="Controllers\AdminPreguntaController.cs" />
     <Compile Include="Controllers\AdminProfesorController.cs" />
@@ -187,6 +188,8 @@
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\AlumnoCarreraViewModel.cs" />
+    <Compile Include="Models\AlumnosViewModel.cs" />
     <Compile Include="Models\ContestaExamenViewModel.cs" />
     <Compile Include="Models\ExamenesListViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
@@ -220,6 +223,8 @@
     <Content Include="Views\AdminTema\Edit.cshtml" />
     <Content Include="Views\AdminPregunta\Index.cshtml" />
     <Content Include="Views\AdminPregunta\Edit.cshtml" />
+    <Content Include="Views\AdminAlumno\Index.cshtml" />
+    <Content Include="Views\AdminAlumno\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

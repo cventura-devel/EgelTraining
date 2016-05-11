@@ -79,12 +79,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAlumnoRepository.cs" />
     <Compile Include="Abstract\ICarreraRepository.cs" />
     <Compile Include="Abstract\IExamenRepository.cs" />
     <Compile Include="Abstract\IPlanRepository.cs" />
     <Compile Include="Abstract\IPreguntaRepository.cs" />
     <Compile Include="Abstract\IProfesorRepository.cs" />
     <Compile Include="Abstract\ITemaRepository.cs" />
+    <Compile Include="Concrete\EFAlumnoRepository.cs" />
     <Compile Include="Concrete\EFCarreraRepository.cs" />
     <Compile Include="Concrete\EFExamenRepository.cs" />
     <Compile Include="Concrete\EFPlanRepository.cs" />
