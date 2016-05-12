@@ -33,11 +33,7 @@ namespace EgelTraining.WebUI.Controllers
 
         public ViewResult Edit(string matricula)
         {
-            //AlumnoCarreraViewModel model = new AlumnoCarreraViewModel
-            //{
             Alumno alumno = repositoryA.Alumnos.First(a => a.Matricula == matricula);
-            //Carreras = repositoryC.Carreras
-            //};
             PopulateCarrerasDropDownList(alumno.Carrera);
             return View(alumno);
         }
@@ -51,49 +47,47 @@ namespace EgelTraining.WebUI.Controllers
 
 
         [HttpPost]
-        public ActionResult Edit(Alumno alumno,string siglasCarrera)
+        public ActionResult Edit(Alumno alumno)
         {
             if(ModelState.IsValid)
             {
-                //if(TryUpdateModel(alumno,"",new string[] {"Matricula","Nombre","ApellidoPaterno","ApellidoMaterno", "siglasCarrera", "CorreoElectronico","PasswordHash" }))
-                alumno.Carrera = siglasCarrera;
+                if (TryUpdateModel(alumno,"", new string[] { "Matricula", "Nombre", "ApellidoPaterno", "ApellidoMaterno", "Carrera" }))
+                {
+                    repositoryA.SaveAlumno(alumno);
+                    TempData["message"] = string.Format("{0} salvado correctamente", alumno.Matricula);
+                }
+                else
+                {
+                    TempData["message"] = string.Format("{0} no fue salvado, error en la base de datos", alumno.Matricula);
+                }
 
-                repositoryA.SaveAlumno(alumno);
-                TempData["message"] = string.Format("{0} salvado correctamente", alumno.Matricula);
                 return RedirectToAction("Index");
+
             }
             else
             {
                 return View(alumno);
             }
         }
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        repository.SaveTema(tema);
-        //        TempData["message"] = string.Format("{0} salvado correctamente", tema.NombreTema);
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-        //        return View(tema);
-        //    }
-        //}
 
-        //public ViewResult Create()
-        //{
-        //    return View("Edit", new Tema());
-        //}
 
-        //[HttpPost]
-        //public ActionResult Delete(string claveTema)
-        //{
-        //    Tema deletedTema = repository.DeleteTema(claveTema);
-        //    if (deletedTema != null)
-        //    {
-        //        TempData["message"] = string.Format("{0} fue borrado exitósamente", deletedTema.NombreTema);
-        //    }
-        //    return RedirectToAction("Index");
-        //}
+   
+        public ViewResult Create()
+        {
+            PopulateCarrerasDropDownList();
+            return View("Edit", new Alumno());
+        }
+
+
+        [HttpPost]
+        public ActionResult Delete(string matricula)
+        {
+            Alumno deletedAlumno = repositoryA.DeleteAlumno(matricula);
+            if (deletedAlumno != null)
+            {
+                TempData["message"] = string.Format("{0} fue borrado exitósamente", deletedAlumno.Nombre);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

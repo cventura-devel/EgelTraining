@@ -1,6 +1,6 @@
 ﻿@model EgelTraining.Domain.Entities.Alumno
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editando" + Model.Matricula;
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -16,21 +16,28 @@
             <div class="panel-body">
 
                 @Html.LabelFor(Model => Model.Matricula)
-                @Html.EditorFor(Model => Model.Matricula)
+                @Html.TextBoxFor(Model => Model.Matricula, new { @class = "form-control" })
 
                 @Html.LabelFor(Model => Model.Nombre)
-                @Html.EditorFor(Model => Model.Nombre)
+                @Html.TextBoxFor(Model => Model.Nombre, new { @class = "form-control" })
 
                 @Html.LabelFor(Model => Model.ApellidoPaterno)
-                @Html.EditorFor(Model => Model.ApellidoPaterno)
+                @Html.TextBoxFor(Model => Model.ApellidoPaterno,new {@class = "form-control" })
 
                 @Html.LabelFor(Model => Model.ApellidoMaterno)
-                @Html.EditorFor(Model => Model.ApellidoMaterno)
+                @Html.TextBoxFor(Model => Model.ApellidoMaterno, new { @class = "form-control" })
 
+                @Html.LabelFor(Model => Model.CorreoElectronico)
+                @Html.TextBoxFor(Model => Model.CorreoElectronico, new { @class = "form-control" })
+             
 
-
-
-                @Html.DropDownList("siglasCarrera", string.Empty)
+                @Html.LabelFor(Model => Model.Carrera)
+                
+                
+                @Html.DropDownListFor(Model => Model.Carrera, (SelectList)ViewBag.siglasCarrera, new { @class = "form-control" })    
+    
+                @*otras formas menos limpias de hacerlo*@
+                @*@Html.DropDownList("Carrera", (SelectList)ViewBag.siglasCarrera , htmlAttributes: new { @class = "form-control" })*@
 
             </div>
 
