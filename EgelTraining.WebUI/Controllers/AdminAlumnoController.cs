@@ -70,14 +70,11 @@ namespace EgelTraining.WebUI.Controllers
             }
         }
 
-
-   
         public ViewResult Create()
         {
             PopulateCarrerasDropDownList();
             return View("Edit", new Alumno());
         }
-
 
         [HttpPost]
         public ActionResult Delete(string matricula)

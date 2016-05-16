@@ -1,18 +1,47 @@
-﻿
+﻿@model IEnumerable<EgelTraining.Domain.Entities.Profesor>
 @{
-    Layout = null;
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
-        jkjñlkj
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Profesores</h3>
     </div>
-</body>
-</html>
+
+    <div class="panel-body">
+        <table class="table table-striped table-condensed table-bordered">
+            <tr>
+                @*<th class="text-right">ID</th>*@
+                <th>Nómina</th>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>Correo Electrónico</th>
+                <th class="text-center"></th>
+            </tr>
+            @foreach (var profesor in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(profesor.Nomina, "Edit", new { profesor.Nomina })</td>
+                    <td>@profesor.Nombre</td>
+                    <td>@profesor.ApellidoPaterno</td>
+                    <td>@profesor.ApellidoMaterno</td>
+                    <td>@profesor.CorreoElectronico</td>
+                    <td class="text-center">
+                        @using (Html.BeginForm("Delete", "AdminProfesor"))
+                        {
+                            @Html.Hidden("Nomina", profesor.Nomina)
+                            <input type="submit" class="btn btn-danger btn-xs" value="Delete" />
+                        }
+
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="panel-footer">
+        @Html.ActionLink("Crear Profesor", "Create", null, new { @class = "btn btn-default" })
+    </div>
+</div>

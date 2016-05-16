@@ -17,11 +17,11 @@ namespace EgelTraining.Domain.Concrete
             get { return context.Profesors; }
         }
 
-        public void SaveProfesor(Profesor profesor) // si le da RC-> Go to Definition (F12) puede ver la definición de la clase
+        public void SaveProfesor(Profesor profesor) 
         {
             Profesor dbEntry = context.Profesors.Find(profesor.Nomina);
             
-            if (dbEntry != null) //Si encontró al profesor, actualiza los datos
+            if (dbEntry != null) 
             {
                 dbEntry.Nomina = profesor.Nomina;
                 dbEntry.Nombre = profesor.Nombre;

@@ -1,0 +1,51 @@
+﻿@model EgelTraining.Domain.Entities.Profesor
+@{
+    ViewBag.Title = "Editando" + Model.Nomina;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Editar @Model.Nombre</h3>
+    </div>
+
+
+    @using (Html.BeginForm("Edit", "AdminProfesor"))
+    {
+        <div class="panel-body">
+
+            @Html.LabelFor(Model => Model.Nomina)
+            @Html.TextBoxFor(Model => Model.Nomina, new { @class = "form-control" })
+
+            @Html.LabelFor(Model => Model.Nombre)
+            @Html.TextBoxFor(Model => Model.Nombre, new { @class = "form-control" })
+
+            @Html.LabelFor(Model => Model.ApellidoPaterno)
+            @Html.TextBoxFor(Model => Model.ApellidoPaterno, new { @class = "form-control" })
+
+            @Html.LabelFor(Model => Model.ApellidoMaterno)
+            @Html.TextBoxFor(Model => Model.ApellidoMaterno, new { @class = "form-control" })
+
+            @Html.LabelFor(Model => Model.CorreoElectronico)
+            @Html.TextBoxFor(Model => Model.CorreoElectronico, new { @class = "form-control" })
+
+
+                  
+
+        </div>
+
+            <div class="panel-footer">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                @Html.ActionLink("Cancelar y regresar a Alumnos", "Index", null, new { @class = "btn btn-default" })
+            </div>
+
+    }
+
+
+
+
+</div>
+
+
+
