@@ -11,14 +11,19 @@ namespace EgelTraining.WebUI.Controllers
     {
 
         IPreguntaRepository repository;
+        ICarreraRepository repositoryCarrera;
 
-        public AdminPreguntaController(IPreguntaRepository repo)
+        public AdminPreguntaController(IPreguntaRepository repo, ICarreraRepository repoC)
         {
             repository = repo;
+            repositoryCarrera = repoC;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string carrera, string claveTema)
         {
+
+            PopulateCarrerasDropDownList(carrera);
+            PopulateTemasDropDownList(carrera,claveTema);
             return View(repository.Preguntas);
         }
 
@@ -62,6 +67,20 @@ namespace EgelTraining.WebUI.Controllers
                 return null;
             }
 
+        }
+
+
+
+        private void PopulateCarrerasDropDownList(object selectedCarrera = null)
+        {
+            var carrerasQuery = repositoryCarrera.Carreras;
+            ViewBag.SiglasCarrera = new SelectList(carrerasQuery, "Siglas", "NombreLargo", selectedCarrera);
+        }
+
+        private void PopulateTemasDropDownList(string carrera, object selectedClaveTema = null)
+        {
+            var temasQuery = repositoryCarrera.Carreras.Where(i => i.Siglas == carrera).Single().Temas;
+            ViewBag.ClaveTema = new SelectList(temasQuery, "ClaveTema", "NombreTema", selectedClaveTema);
         }
 
     }

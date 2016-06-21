@@ -1,0 +1,89 @@
+﻿@model EgelTraining.WebUI.Models.ViewModelMainPreguntas
+@{
+    ViewBag.Title = "Carreras";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Carreras</h2>
+
+<h3>este es la parte bla bla bla donde explico, al rato lo hago bonito, lo que debe hacer es presentar carreras y temas, con un next a otra forma ya</h3>
+<p>
+    @Html.ActionLink("Create New","Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+           Carrera
+        </th>
+        <th>
+            Nombre
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var carrera in Model.carreras)
+    {
+        string selectedRow = "";
+        if (carrera.Siglas == ViewBag.Carrera)
+        {
+            selectedRow = "success";
+        }
+        <tr class="@selectedRow">
+            <td>
+                @Html.DisplayFor(modelItem => carrera.Siglas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => carrera.NombreLargo)
+            </td>
+
+            <td>
+                @Html.ActionLink("Select","Index", new { carrera = carrera.Siglas })
+            </td>
+
+        </tr>
+    }
+
+</table>
+
+
+@if (Model.temas != null)
+{
+    <h3>Temas para la carrera</h3>
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Clave Tema</th>
+            <th>Nombre Tema</th>
+        </tr>
+
+        @foreach (var item in Model.temas)
+        {
+            string selectedRow = "";
+            if (item.ClaveTema == ViewBag.ClaveTema)
+            {
+                selectedRow = "success";
+            }
+
+            <tr class="@selectedRow">
+                <td>
+                    @Html.ActionLink("Select", "Index" , new { carrera = ViewBag.Carrera , claveTema = item.ClaveTema})
+                </td>
+                <td>
+                    @item.ClaveTema
+                </td>
+                <td>
+                    @item.NombreTema
+                </td>
+            </tr>
+          
+        }
+
+    </table>
+
+    if (ViewBag.Carrera != null && ViewBag.ClaveTema != null)
+    {
+        @Html.ActionLink("Select","Index","AdminPregunta",new { carrera = ViewBag.Carrera, claveTema = ViewBag.ClaveTema },null)
+    }
+}

@@ -9,6 +9,12 @@
         <h3>Preguntas</h3>
     </div>
 
+    <div>
+        @Html.DropDownList("Carreras", (SelectList)ViewBag.SiglasCarrera)
+        <br />
+        @Html.DropDownList("Temas", (SelectList)ViewBag.ClaveTema)
+    </div>
+
     <div class="panel-body">
         <table class="table table-striped table-condensed table-bordered">
             <tr>

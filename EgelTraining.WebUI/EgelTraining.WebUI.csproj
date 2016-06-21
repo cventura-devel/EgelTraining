@@ -173,6 +173,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminAlumnoController.cs" />
     <Compile Include="Controllers\AdminExamenController.cs" />
+    <Compile Include="Controllers\AdminMainPreguntaController.cs" />
     <Compile Include="Controllers\AdminPreguntaController.cs" />
     <Compile Include="Controllers\AdminProfesorController.cs" />
     <Compile Include="Controllers\AdminTemaController.cs" />
@@ -193,6 +194,7 @@
     <Compile Include="Models\ContestaExamenViewModel.cs" />
     <Compile Include="Models\ExamenesListViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="Models\ViewModelMainPreguntas.cs" />
     <Compile Include="Models\ViewTemaPregunta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -226,6 +228,7 @@
     <Content Include="Views\AdminAlumno\Index.cshtml" />
     <Content Include="Views\AdminAlumno\Edit.cshtml" />
     <Content Include="Views\AdminProfesor\Edit.cshtml" />
+    <Content Include="Views\AdminMainPregunta\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

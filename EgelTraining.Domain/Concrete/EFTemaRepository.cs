@@ -11,7 +11,7 @@ namespace EgelTraining.Domain.Concrete
         private EgelTrainingEntities context = new EgelTrainingEntities();
         public IEnumerable<Tema> Temas
         {
-            //get { return context.Temas.Include("Preguntas"); }
+            //get { return context.Temas.Include("Preguntas"); } //creo que si debe ser singular
             get { return context.Temas; }
         }
 

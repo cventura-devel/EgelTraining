@@ -11,8 +11,11 @@ namespace EgelTraining.Domain.Concrete
         private EgelTrainingEntities context = new EgelTrainingEntities();
         public IEnumerable<Carrera> Carreras
         {
-            get { return context.Carreras; }
+            get { return context.Carreras; } //FUNCIONA CON PLURAL. Con singular truena (make sense)
+            //get { return context.Carreras.Include("Temas"); } //FUNCIONA CON PLURAL. Con singular truena (make sense)
+            //NO REQUIERE EL INCLUDE, FUNCIONA SOLO ASÍ COMO ESTÁ EL CÓDIGO
         }
+
 
         public void SaveCarrera(Carrera carrera) // si le da RC-> Go to Definition (F12) puede ver la definición de la clase
         {
