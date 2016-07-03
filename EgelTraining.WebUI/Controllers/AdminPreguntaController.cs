@@ -96,14 +96,28 @@ namespace EgelTraining.WebUI.Controllers
             Pregunta pregunta = repository.Preguntas.FirstOrDefault(p => p.IDPregunta == iDPregunta);
             viewModel.pregunta = pregunta;
 
+            //var query = repository.Preguntas.Where(p => claveTema == null || p.Temas.Any(t => t.ClaveTema == claveTema));
+            viewModel.respuestasErroneas = repository.Preguntas.Where(p => p.RespuestasErroneas.Any(t => t.ID_Pregunta == iDPregunta)).Single().RespuestasErroneas;
+            //var query = repository.Preguntas.Where(p => p.RespuestasErroneas.Any(t => t.ID_Pregunta == iDPregunta)).Single().RespuestasErroneas;
+
             //viewModel.AltaPreguntaInfo = new AltaPreguntaInfo();
-           
+
+
+            
             return View(viewModel);
         }
 
         [HttpPost]
         public ActionResult Edit(ViewModelAltaEditPregunta viewModel, string carrera, string claveTema, HttpPostedFileBase image = null )
         {
+            //TODO me quede en la parte donde no se salvan los cambiso a las preguntas erroneas, revisar updating related data el tutorial de microsoft
+
+            foreach(var child in viewModel.respuestasErroneas)
+            {
+                System.Console.Write("");
+            }
+
+
             if (ModelState.IsValid)
             {
                 if (image != null)

@@ -35,8 +35,28 @@
             @Html.NameFor(Model => Model.pregunta.Dificultad)
             @Html.TextBoxFor(Model => Model.pregunta.Dificultad, null, new { @class = "form-control" })
 
-            @Html.NameFor(Model => Model.pregunta.Imagen)
 
+            <table class="table table-condensed">
+                <tr>
+                    <th>Respuesta</th>
+                    <th>Explicación</th>
+                </tr>
+
+                @foreach (var respuestaErronea in Model.respuestasErroneas)
+                {
+                    <tr>
+                        <td>
+                            @Html.TextBoxFor(modelItem => respuestaErronea.TextoRespuesta)
+                        </td>
+                        <td>
+                            @Html.TextBoxFor(modelItem => respuestaErronea.Explicacion)
+                        </td>
+                    </tr>
+                }
+            </table>
+
+
+            @Html.NameFor(Model => Model.pregunta.Imagen)
             <div class="form-group">
 
                 <div style="position:relative">

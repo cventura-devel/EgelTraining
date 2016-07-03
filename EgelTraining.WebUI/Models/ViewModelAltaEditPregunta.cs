@@ -8,7 +8,7 @@ namespace EgelTraining.WebUI.Models
         public Pregunta pregunta { set; get; } //este se usa para los datos de la pregunta
 
          
-        //public IEnumerable<RespuestasErronea> respuestasErroneas { set; get; } //respuestas erroneas
+        public IEnumerable<RespuestasErronea> respuestasErroneas { set; get; } //respuestas erroneas
 
         //public AltaPreguntaInfo AltaPreguntaInfo { set; get; } //igual y puede desaparecer
 

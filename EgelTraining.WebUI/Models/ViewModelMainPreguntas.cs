@@ -11,7 +11,7 @@ namespace EgelTraining.WebUI.Models
         
         public IEnumerable<Tema> temas { set; get; }
 
-        public Profesor profesor { set; get; }
+        //public Profesor profesor { set; get; }
 
     }
 }
