@@ -189,11 +189,14 @@
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\AltaPreguntaInfo.cs" />
     <Compile Include="Models\AlumnoCarreraViewModel.cs" />
     <Compile Include="Models\AlumnosViewModel.cs" />
     <Compile Include="Models\ContestaExamenViewModel.cs" />
     <Compile Include="Models\ExamenesListViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="Models\ViewModelAltaEditPregunta.cs" />
+    <Compile Include="Models\ViewModelListadoPreguntas.cs" />
     <Compile Include="Models\ViewModelMainPreguntas.cs" />
     <Compile Include="Models\ViewTemaPregunta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

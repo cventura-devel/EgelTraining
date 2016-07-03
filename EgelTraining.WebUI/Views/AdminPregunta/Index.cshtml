@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EgelTraining.Domain.Entities.Pregunta>
+﻿@model EgelTraining.WebUI.Models.ViewModelListadoPreguntas
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -10,9 +10,10 @@
     </div>
 
     <div>
-        @Html.DropDownList("Carreras", (SelectList)ViewBag.SiglasCarrera)
+        @Html.DropDownList("Carreras", (SelectList)ViewBag.SiglasCarrera,"seleccione")
         <br />
-        @Html.DropDownList("Temas", (SelectList)ViewBag.ClaveTema)
+        @Html.DropDownList("Temas", (SelectList)ViewBag.ClaveTema,"seleccine")
+        
     </div>
 
     <div class="panel-body">
@@ -25,17 +26,17 @@
                 <th>Imagen</th>
                 <th class="text-center"></th>
             </tr>
-            @foreach (var pregunta in Model)
+            @foreach (var pregunta in Model.preguntas)
             {
                 <tr>
                     @*<td class="text-right">@examen.IDExamen</td>*@
-                    <td>@Html.ActionLink(pregunta.Texto, "Edit", new { pregunta.IDPregunta })</td>
+                    <td>@Html.ActionLink(pregunta.Texto, "Edit", new { pregunta.IDPregunta, ViewBag.selectedSiglasCarrera, ViewBag.selectedClaveTema })</td>
                     <td>@pregunta.TextoRespuesta</td>
                     <td>@pregunta.Tipo</td>
 
                     <td>
-                        @if(pregunta.Imagen != null && pregunta.Imagen.Length > 0){
-                            <img class="img-thumbnail" width="20" height="20" src="@Url.Action("GetImage","AdminPregunta",new { pregunta.IDPregunta})">
+                        @if (pregunta.Imagen != null && pregunta.Imagen.Length > 0) {
+                            <img class="img-thumbnail" width="20" height="20" src="@Url.Action("GetImage", "AdminPregunta", new { pregunta.IDPregunta })">
                         }
                         else
                         {
@@ -56,6 +57,13 @@
                 </tr>
             }
         </table>
+        @{ TempData["carrera"] = ViewBag.selectedSiglasCarrera;}
+        @{ TempData["tema"] = ViewBag.selectedClaveTema;}
+
+        @Html.Hidden("carrera1", new {ViewBag.selectedSiglasCarrera })
+        @Html.Hidden("tema1", new { ViewBag.selectedSiglasCarrera })
+
+
     </div>
 
     <div class="panel-footer">

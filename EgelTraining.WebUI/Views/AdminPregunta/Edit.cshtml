@@ -1,4 +1,83 @@
-﻿@model EgelTraining.Domain.Entities.Pregunta
+﻿@model EgelTraining.WebUI.Models.ViewModelAltaEditPregunta
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Editar @Model.pregunta.Texto</h3>
+        <h4>@Model.CurrentCarrera</h4>
+        <h4>@Model.CurrentTema</h4>
+
+
+    </div>
+    
+
+
+    @using (Html.BeginForm("Edit", "AdminPregunta",FormMethod.Post,new {enctype="multipart/form-data"}))
+    {
+        <div class="panel-body">
+            @Html.HiddenFor(Model => Model.pregunta.IDPregunta)
+
+            @Html.NameFor(Model => Model.pregunta.Texto)
+            @Html.TextBox("pregunta.Texto", null, new { @class = "form-control" })
+
+            @Html.NameFor(Model => Model.pregunta.Tipo)
+            @Html.TextBoxFor(Model => Model.pregunta.Tipo, null, new { @class = "form-control" })
+
+            @Html.NameFor(Model => Model.pregunta.TextoRespuesta)
+            @Html.TextBoxFor(Model => Model.pregunta.TextoRespuesta, null, new { @class = "form-control" })
+
+            @Html.NameFor(Model => Model.pregunta.RespuestaCorrecta)
+            @Html.TextBoxFor(Model => Model.pregunta.RespuestaCorrecta, null, new { @class = "form-control" })
+
+            @Html.NameFor(Model => Model.pregunta.Dificultad)
+            @Html.TextBoxFor(Model => Model.pregunta.Dificultad, null, new { @class = "form-control" })
+
+            @Html.NameFor(Model => Model.pregunta.Imagen)
+
+            <div class="form-group">
+
+                <div style="position:relative">
+                    <label>Image</label>
+                    <a class='btn' href='javascript:;'>
+                       Choose File...
+                       <input type="file" name="Image" size="40"
+                              style="position:absolute;z-index:2;top:0;background-color:transparent;color:transparent"
+                              onchange='$("#upload-file-info").html($(this).val());'>
+                    </a>
+                    <span class='label label-info' id="upload-file-info"> </span>
+                </div>
+                @if (Model.pregunta.Imagen == null)
+                {
+                    <div class="form-control-static">No Image</div>
+                }
+                else
+                {
+                    <img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImage","AdminPregunta", new { Model.pregunta.IDPregunta})" />
+                }
+            </div>
+          </div>
+
+          @Html.Hidden("carrera", Model.CurrentCarrera);
+          @Html.Hidden("clavetema",Model.CurrentTema)  
+
+        //TempData["carrera"] = ViewBag.carrera;
+        //TempData["tema"] = ViewBag.tema;
+
+        <div class="panel-footer">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Cancelar y regresar a Preguntas", "Index", null, new { @class = "btn btn-default" })
+        </div>
+
+    }
+
+</div>
+
+
+
+@*@model EgelTraining.Domain.Entities.Pregunta
 @{
     ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -9,7 +88,7 @@
         <h3>Editar @Model.Texto</h3>
     </div>
 
-    @using (Html.BeginForm("Edit", "AdminPregunta",FormMethod.Post,new {enctype="multipart/form-data"}))
+    @using (Html.BeginForm("Edit", "AdminPregunta", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         <div class="panel-body">
             @Html.HiddenFor(c => c.IDPregunta)
@@ -36,10 +115,10 @@
                 <div style="position:relative">
                     <label>Image</label>
                     <a class='btn' href='javascript:;'>
-                       Choose File...
-                       <input type="file" name="Image" size="40"
-                              style="position:absolute;z-index:2;top:0;background-color:transparent;color:transparent"
-                              onchange='$("#upload-file-info").html($(this).val());'>
+                        Choose File...
+                        <input type="file" name="Image" size="40"
+                               style="position:absolute;z-index:2;top:0;background-color:transparent;color:transparent"
+                               onchange='$("#upload-file-info").html($(this).val());'>
                     </a>
                     <span class='label label-info' id="upload-file-info"> </span>
                 </div>
@@ -52,7 +131,7 @@
                     <img class="img-thumbnail" width="150" height="150" src="@Url.Action("GetImage","AdminPregunta", new { Model.IDPregunta})" />
                 }
             </div>
-          </div>
+        </div>
 
         <div class="panel-footer">
             <input type="submit" value="Save" class="btn btn-primary" />
@@ -61,4 +140,4 @@
 
     }
 
-</div>
+</div>*@

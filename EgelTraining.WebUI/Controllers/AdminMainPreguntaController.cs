@@ -40,8 +40,6 @@ namespace EgelTraining.WebUI.Controllers
             }
 
 
-
-
             return View(viewModel);
             //recodar que ya esta incluido desde el EFCarreras el include a Tema
 
